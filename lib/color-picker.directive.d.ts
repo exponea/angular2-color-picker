@@ -1,4 +1,4 @@
-import { OnChanges, ViewContainerRef, ElementRef, EventEmitter, OnInit } from '@angular/core';
+import { OnChanges, ViewContainerRef, ElementRef, EventEmitter, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ColorPickerService } from './color-picker.service';
 import { Compiler } from '@angular/core';
 export declare class ColorPickerDirective implements OnInit, OnChanges {
@@ -66,6 +66,7 @@ export declare class SliderDirective {
 export declare class DialogComponent implements OnInit {
     private el;
     private service;
+    private changeDetectorRef;
     private hsva;
     private rgbaText;
     private hslaText;
@@ -109,7 +110,7 @@ export declare class DialogComponent implements OnInit {
     hueSlider: any;
     alphaSlider: any;
     dialogElement: any;
-    constructor(el: ElementRef, service: ColorPickerService);
+    constructor(el: ElementRef, service: ColorPickerService, changeDetectorRef: ChangeDetectorRef);
     setDialog(instance: any, elementRef: ElementRef, color: any, cpPosition: string, cpPositionOffset: string, cpPositionRelativeToArrow: boolean, cpOutputFormat: string, cpPresetLabel: string, cpPresetColors: Array<string>, cpCancelButton: boolean, cpCancelButtonClass: string, cpCancelButtonText: string, cpOKButton: boolean, cpOKButtonClass: string, cpOKButtonText: string, cpHeight: string, cpWidth: string, cpIgnoredElements: any, cpDialogDisplay: string, cpSaveClickOutside: boolean, cpAlphaChannel: string): void;
     ngOnInit(): void;
     setInitialColor(color: any): void;
