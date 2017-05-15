@@ -29,10 +29,5 @@
     "run-sequence": "^1.2.2",
     "typescript": "^2.1.5",
     "typings": "^2.1.0"
-  },
-  "files":[
-      "lib/*",
-      "index.d.ts",
-      "index.ts"
-  ]
+  }
 }
