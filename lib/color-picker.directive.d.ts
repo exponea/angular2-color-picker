@@ -1,4 +1,4 @@
-import { OnChanges, ViewContainerRef, ElementRef, EventEmitter, OnInit } from '@angular/core';
+import { OnChanges, ViewContainerRef, ElementRef, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ColorPickerService } from './color-picker.service';
 import { Compiler } from '@angular/core';
 export declare class ColorPickerDirective implements OnInit, OnChanges {
@@ -7,9 +7,9 @@ export declare class ColorPickerDirective implements OnInit, OnChanges {
     private el;
     private service;
     colorPicker: string;
-    colorPickerChange: EventEmitter<string>;
+    colorPickerChange: any;
     cpToggle: boolean;
-    cpToggleChange: EventEmitter<boolean>;
+    cpToggleChange: any;
     cpPosition: string;
     cpPositionOffset: string;
     cpPositionRelativeToArrow: boolean;
@@ -42,14 +42,14 @@ export declare class ColorPickerDirective implements OnInit, OnChanges {
     toggle(value: boolean): void;
 }
 export declare class TextDirective {
-    newValue: EventEmitter<any>;
+    newValue: any;
     text: any;
     rg: number;
     changeInput(value: string): void;
 }
 export declare class SliderDirective {
     private el;
-    newValue: EventEmitter<any>;
+    newValue: any;
     slider: string;
     rgX: number;
     rgY: number;
@@ -66,6 +66,7 @@ export declare class SliderDirective {
 export declare class DialogComponent implements OnInit {
     private el;
     private service;
+    private changeDetectorRef;
     private hsva;
     private rgbaText;
     private hslaText;
@@ -109,7 +110,7 @@ export declare class DialogComponent implements OnInit {
     hueSlider: any;
     alphaSlider: any;
     dialogElement: any;
-    constructor(el: ElementRef, service: ColorPickerService);
+    constructor(el: ElementRef, service: ColorPickerService, changeDetectorRef: ChangeDetectorRef);
     setDialog(instance: any, elementRef: ElementRef, color: any, cpPosition: string, cpPositionOffset: string, cpPositionRelativeToArrow: boolean, cpOutputFormat: string, cpPresetLabel: string, cpPresetColors: Array<string>, cpCancelButton: boolean, cpCancelButtonClass: string, cpCancelButtonText: string, cpOKButton: boolean, cpOKButtonClass: string, cpOKButtonText: string, cpHeight: string, cpWidth: string, cpIgnoredElements: any, cpDialogDisplay: string, cpSaveClickOutside: boolean, cpAlphaChannel: string): void;
     ngOnInit(): void;
     setInitialColor(color: any): void;
